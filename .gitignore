@@ -1,3 +1,6 @@
+# CRISCE output
+output/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -109,6 +112,9 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.venv/
+.venv-mac/
+.venv-win/
 
 # Spyder project settings
 .spyderproject

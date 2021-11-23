@@ -59,7 +59,8 @@ We exemplify the installation and usage of CRISCE using Windows Powershell; you 
 Before starting, check that you have installed the right version of Python:
 
 ```
-python.exe -V    Python 3.7.10
+python.exe -V
+    Python 3.7.10
 ```
 
 To install CRISCE we suggest creating a virtual environment using `venv`. You can also use `conda` or similar, but in this case you need to adapt the command below to fit your case.
@@ -108,7 +109,17 @@ py.exe crisce/app.py --help
 This command must produce an output similar to:
 
 ```
-Usage: app.py [OPTIONS] COMMAND [ARGS]...Options:  --log-to PATH  Location of the log file. If not specified logs appear on the                 console  --debug        Activate debugging (results in more logging)  [default:                 (Disabled)]  --help         Show this message and exit.Commands:  generate
+Usage: app.py [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --log-to PATH  Location of the log file. If not specified logs appear on the
+                 console
+  --debug        Activate debugging (results in more logging)  [default:
+                 (Disabled)]
+  --help         Show this message and exit.
+
+Commands:
+  generate
 ```
 
 ### Running CRISCE
@@ -116,13 +127,30 @@ The current release of CRISCE allows to generate a BeamNG simulation of a car cr
 
 ```
 py.exe crisce/app.py generate --help
-Usage: app.py generate [OPTIONS]Options:  --accident-sketch PATH        Input accident sketch for generating the                                simulation  [required]  --dataset-name [CIREN|SYNTH]  Name of the dataset the accident comes from.                                [required]  --output-to PATH              Folder to store outputs. It will created if                                not present. If omitted we use the accident                                folder.  --beamng-home PATH            Home folder of the BeamNG.research simulator                                [required]  --beamng-user PATH            User folder of the BeamNG.research simulator                                [required]  --help                        Show this message and exit.
+
+Usage: app.py generate [OPTIONS]
+
+Options:
+  --accident-sketch PATH        Input accident sketch for generating the
+                                simulation  [required]
+  --dataset-name [CIREN|SYNTH]  Name of the dataset the accident comes from.
+                                [required]
+  --output-to PATH              Folder to store outputs. It will created if
+                                not present. If omitted we use the accident
+                                folder.
+  --beamng-home PATH            Home folder of the BeamNG.research simulator
+                                [required]
+  --beamng-user PATH            User folder of the BeamNG.research simulator
+                                [required]
+  --help                        Show this message and exit.
 ```
 
 The following commands show how you can generate a simulation of a real car crash (i.e., from a sketch in the CIREN dataset) and from a simulated crash (i.e., from a sketch in the SYNTH dataset). The difference between the two dataset is that for sketches of real car crashes, we have information about the expected impact; while, for synthetic sketches the information is missing.
 
 For example, to create a simulation form the following sketch (i.e., CIREN-99817):
 ![CIREN-99817](./Datasets/CIREN/99817/sketch.jpeg)
+
+![CIREN-99817](./demo/99817.gif)
 
 you can run the following command (after replacing `<BEAMNG_HOME>` and `<BEAMNG_USER>` with the appropriate values:
 
@@ -144,7 +172,8 @@ py.exe crisce/app.py generate generate --accident-sketch ./Datasets/SYNTH/fourwa
 The `generate` command produces a number of intermediate outputs that show the progress of the computation and measure the accuracy of the simulation that is printed on the console:
 
 ```
-Quality_of_environment = 33.0, quality_of_crash = 17.0, quality_of_trajecory = 19.009199327937655Crash Simulation Accuracy =  69.00919932793765 %
+Quality_of_environment = 33.0, quality_of_crash = 17.0, quality_of_trajecory = 19.009199327937655
+Crash Simulation Accuracy =  69.00919932793765 %
 ```
 
 The intermediate results instead are stored under the sketch folder (under `output`) or the folder configured via the `--output-to` parameter.

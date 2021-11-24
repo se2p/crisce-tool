@@ -2,6 +2,8 @@
 
 This document describes how to install and use CRISCE (CRItical SCEnario), the tool developed by Jasim Ahmed and others for automatically generate simulations of car crashed from accident sketches using [BeamNG.tech](https://beamng.tech/).
 
+A video demonstration of the tool is available on [YouTube](https://youtu.be/G8GJl4wTchI).
+
 ## Repo Organization
 
 ```
